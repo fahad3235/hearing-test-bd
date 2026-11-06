@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hearing Test BD</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <h1 id="app-title">Hearing Test BD</h1>
+    <p id="app-subtitle" class="subtitle"></p>
+  </div>
+  <button id="lang-toggle" class="btn btn-ghost" type="button">BN</button>
+</header>
+
+<nav class="tabs" role="tablist">
+  <button class="tab-btn active" data-tab="test" type="button" id="tab-test-btn">Test</button>
+  <button class="tab-btn" data-tab="history" type="button" id="tab-history-btn">History</button>
+  <button class="tab-btn" data-tab="data" type="button" id="tab-data-btn">Data</button>
+</nav>
+
+<main>
+  <!-- ============ TEST VIEW ============ -->
+  <section id="view-test">
+    <div class="card" id="setup-card">
+      <h2 id="setup-title"></h2>
+      <p id="setup-1"></p>
+      <p id="setup-2"></p>
+      <p id="setup-3" class="warn"></p>
+
+      <h3 id="calib-title"></h3>
+      <p id="calib-text"></p>
+      <div class="row">
+        <button id="play-calib-btn" class="btn btn-primary" type="button"></button>
+        <span id="calib-status" class="status"></span>
+      </div>
+
+      <h3 id="chan-title"></h3>
+      <p id="chan-text"></p>
+      <div class="row">
+        <button id="play-left-btn" class="btn" type="button"></button>
+        <button id="play-right-btn" class="btn" type="button"></button>
+      </div>
+      <div class="row">
+        <button id="heard-left-btn" class="btn" type="button"></button>
+        <button id="heard-right-btn" class="btn" type="button"></button>
+        <button id="heard-both-btn" class="btn" type="button"></button>
+      </div>
+      <p id="chan-status" class="status"></p>
+
+      <div class="row">
+        <button id="start-test-btn" class="btn btn-primary btn-big" type="button" disabled></button>
+      </div>
+      <p id="start-hint" class="hint"></p>
+    </div>
+
+    <div class="card hidden" id="test-card">
+      <h2 id="test-title"></h2>
+      <p id="test-step" class="muted"></p>
+      <div class="progress"><div id="test-progress" class="progress-fill"></div></div>
+      <p id="test-ear-freq" class="big"></p>
+      <p id="test-status" class="muted"></p>
+      <div class="row answer-row">
+        <button id="heard-btn" class="btn btn-primary btn-big" type="button"></button>
+        <button id="notheard-btn" class="btn btn-big" type="button"></button>
+      </div>
+      <div class="row">
+        <button id="replay-btn" class="btn" type="button"></button>
+        <button id="stop-test-btn" class="btn btn-ghost" type="button"></button>
+      </div>
+    </div>
+
+    <div class="card hidden" id="results-card">
+      <h2 id="results-title"></h2>
+      <p id="results-sub" class="muted"></p>
+      <div id="audiogram"></div>
+      <div id="results-summary"></div>
+      <ul id="results-flags"></ul>
+      <div id="save-block">
+        <label for="result-note" id="note-label" class="muted"></label>
+        <input id="result-note" type="text" maxlength="120" autocomplete="off">
+        <div class="row">
+          <button id="save-result-btn" class="btn btn-primary" type="button"></button>
+          <span id="saved-msg" class="status"></span>
+        </div>
+      </div>
+      <div class="row">
+        <button id="retake-btn" class="btn" type="button"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HISTORY VIEW ============ -->
+  <section id="view-history" class="hidden">
+    <div class="card">
+      <h2 id="hist-title"></h2>
+      <p id="hist-empty" class="muted hidden"></p>
+      <ul id="history-list" class="history-list"></ul>
+    </div>
+  </section>
+
+  <!-- ============ DATA VIEW ============ -->
+  <section id="view-data" class="hidden">
+    <div class="card">
+      <h2 id="data-title"></h2>
+      <div class="row">
+        <button id="export-btn" class="btn btn-primary" type="button"></button>
+      </div>
+      <h3 id="import-title"></h3>
+      <textarea id="import-text" rows="4" spellcheck="false" placeholder='{"app":"hearing-test-bd","version":1,"results":[]}'></textarea>
+      <div class="row">
+        <button id="import-btn" class="btn" type="button"></button>
+        <span id="import-status" class="status"></span>
+      </div>
+      <h3 id="erase-title"></h3>
+      <p id="erase-hint" class="muted"></p>
+      <div class="row">
+        <input id="erase-input" type="text" autocomplete="off" placeholder="DELETE">
+        <button id="erase-btn" class="btn btn-danger" type="button"></button>
+      </div>
+      <p id="erase-status" class="status"></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p id="footer-note"></p>
+</footer>
+
+<script src="js/hearing.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
